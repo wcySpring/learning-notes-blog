@@ -1,0 +1,11 @@
+@import '_variables';
+
+:root {
+	--homepage-width: 1126px;
+}
+
+@media (max-width: $MQIpad) {
+	.hide-on-mobile {
+		display: none !important;
+	}
+}

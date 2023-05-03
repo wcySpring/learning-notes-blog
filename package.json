@@ -1,0 +1,23 @@
+{
+	"name": "front-end-basics-blog",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "vitepress dev docs",
+		"build": "vitepress build docs",
+		"serve": "vitepress serve docs"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"sass": "^1.62.1",
+		"vitepress": "^1.0.0-alpha.75",
+		"vue": "^3.2.47"
+	},
+	"dependencies": {
+		"markdown-it-container": "^3.0.0",
+		"oh-vue-icons": "^1.0.0-rc3"
+	}
+}

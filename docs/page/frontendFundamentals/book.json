@@ -1,0 +1,23 @@
+{
+    "plugins": [
+        "highlight",
+        "copy-code",
+        "image-zoom",
+        "copyright",
+        "comment",
+        "tex",
+        "api",
+        "sql-table",
+        "ad",
+        "youku",
+        "flow"
+    ],
+    "pluginsConfig": {
+        "highlight": {
+            "defaultLanguage": "javascript"
+        },
+        "tex": {
+            "engine": "mathjax"
+        }
+    }
+}

@@ -1,0 +1,1 @@
+https://github.com/fex-team/ua-device

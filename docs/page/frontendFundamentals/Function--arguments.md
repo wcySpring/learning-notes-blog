@@ -1,0 +1,61 @@
+>[success] # Function -- arguments
+1. **arguments** 是一个 对应于 传递给函数的参数 的 **类数组 array-like**对象
+2. **arguments** 只是像数组结构一种对象，因此他不具备数组的方法，如**filter、map**，但其自身是有**length**,且也是**可迭代对象**，因此可以使用**index** 依次获取或者 **of**循环可迭代对象
+3. **arguments** 获取是是实际传入参数个数
+~~~
+function a(p1, p2, p3, p4 = 4, ...args) {
+	console.log(arguments)
+	console.log(arguments.length)
+}
+a() // [Arguments] {} 0
+a(1, 2) // [Arguments] { '0': 1, '1': 2 } 2
+a(1, 2, 3, 4, 5, 6, 7) // [Arguments] { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6, '6': 7 }  7
+~~~
+>[danger] ##### arguments转Array
+1. 遍历arguments，添加到一个新数组中
+2. 调用数组**slice**函数的call方法
+3. ES6 **Array.from** 和 **解构赋值**
+~~~
+function a(p1, p2, p3, p4 = 4, ...args) {
+	const newLs1 = []
+	for (let item of arguments) {
+		newLs1.push(item)
+	}
+
+	// es6
+	const newLs2 = Array.from(arguments)
+	const newLs3 = [...arguments]
+
+	// 改变this 指向 等同 [].slice.call(arguments)
+	const newLs4 = Array.prototype.slice.call(arguments)
+	const newLs5 = Array.prototype.splice.call(arguments, 0)
+
+	console.log(newLs1)
+	console.log(newLs2)
+	console.log(newLs3)
+	console.log(newLs4)
+	console.log(newLs5)
+}
+
+a(1, 2, 3, 4, 5, 6, 7)
+
+~~~
+>[danger] ##### 箭头函数不绑定arguments
+1. 箭头函数没有**arguments** 属性
+~~~
+function a(p1, p2, p3, p4 = 4, ...args) {
+	return (a1) => {
+		console.log(arguments) // 箭头函数没有arguments 熟悉因此获取当前this为最外层函数的
+	}
+}
+
+a(1, 2, 3, 4, 5, 6, 7)(10) // [Arguments] { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5, '5': 6, '6': 7 }
+
+
+~~~
+
+>[info] ## 使用es6 剩余参数 还是es5 arguments
+
+1. 剩余参数只**包含那些没有对应形参的实参**，剩余参数是一个真正的数组，可以进行**数组的所有操作**
+2. **arguments** 对象包含了**传给函数的所有实参**；  arguments对象**不是一个真正的数组**
+3. arguments是早期的ECMAScript中为了方便去获取所有的参数提供的一个数据结构，而rest参数是ES6中提供并且希望以此来替代arguments的

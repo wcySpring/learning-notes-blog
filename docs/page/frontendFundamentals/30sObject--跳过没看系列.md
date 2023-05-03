@@ -1,0 +1,8 @@
+[https://www.30secondsofcode.org/js/s/deep-get](https://www.30secondsofcode.org/js/s/deep-get)
+[https://www.30secondsofcode.org/js/s/deep-freeze](https://www.30secondsofcode.org/js/s/deep-freeze)
+[https://www.30secondsofcode.org/js/s/check-prop](https://www.30secondsofcode.org/js/s/check-prop)
+[https://www.30secondsofcode.org/js/s/bind-all](https://www.30secondsofcode.org/js/s/bind-all)
+[https://www.30secondsofcode.org/js/s/defaults](https://www.30secondsofcode.org/js/s/defaults)
+[https://www.30secondsofcode.org/js/s/get](https://www.30secondsofcode.org/js/s/get)
+[https://www.30secondsofcode.org/js/s/has-key](https://www.30secondsofcode.org/js/s/has-key)
+[https://www.30secondsofcode.org/js/s/is-deep-frozen](https://www.30secondsofcode.org/js/s/is-deep-frozen)

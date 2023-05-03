@@ -1,0 +1,135 @@
+<template>
+	<main class="home-blog">
+		<div class="hero" :style="{ 'background-image': bgImagePath }">
+			<div
+				v-if="bgImageMask"
+				class="hero-mask"
+				:style="{
+					background: bgImageMask,
+				}"
+			/>
+
+			<div class="hero-content" :style="{ opacity: headerOpacity }">
+				<img
+					class="hero-avatar"
+					:src="withBase(theme.personalInfo.avatar)"
+					alt="hero"
+				/>
+
+				<div class="hero-bubble hide-on-mobile">
+					<div class="hero-bubble__body">
+						<p>{{ hitokotoText }}</p>
+					</div>
+					<div class="hero-bubble__tile" />
+				</div>
+
+				<div class="hero-info">
+					<h1>wcySpring</h1>
+					<div class="description hide-on-mobile">
+						<div>
+							<div>126</div>
+							<div>博客文章</div>
+						</div>
+						<div>
+							<div>126</div>
+							<div>本月更新</div>
+						</div>
+						<div>
+							<div>126</div>
+							<div>本周更新</div>
+						</div>
+						<div>
+							<div>126</div>
+							<div>标签</div>
+						</div>
+					</div>
+				</div>
+				<!-- 	 社交 -->
+				<SNS class="hide-on-mobile" large />
+
+				<button
+					class="hero-img-prev hide-on-mobile"
+					@click="switchImage(-1)"
+				>
+					<VIcon name="fa-chevron-left" />
+				</button>
+				<button
+					class="hero-img-next hide-on-mobile"
+					@click="switchImage(1)"
+				>
+					<VIcon name="fa-chevron-right" />
+				</button>
+
+				<span
+					class="hero-arrow-down hide-on-mobile"
+					@click="scrollToPost()"
+				>
+					<VIcon name="fa-chevron-down" animation="float" />
+				</span>
+			</div>
+		</div>
+		<HomeContainer />
+	</main>
+</template>
+
+<script setup lang="ts">
+	// import SNS from '@theme/SNS.vue'
+	import { computed, onMounted, ref } from 'vue'
+	import { useData, withBase } from 'vitepress'
+
+	// 社交
+	import SNS from './SNS.vue'
+	// 内容展示区域
+	import HomeContainer from './HomeContainer.vue'
+
+	const { theme } = useData()
+
+	const bgImages = theme.value.homeHeaderImages
+
+	const bgImageID = ref(-1)
+	const headerOpacity = ref(1)
+
+	// -------- Scroll --------
+
+	const scrollToPost = () => {
+		window.scrollTo({
+			top: document.querySelector('.hero')?.clientHeight,
+			behavior: 'smooth',
+		})
+	}
+
+	const hitokotoText = ref('个人博客')
+
+	onMounted(() => {
+		if (bgImages && bgImages.length > 0)
+			bgImageID.value = Math.floor(Math.random() * bgImages.length)
+	})
+
+	// -------- Header images --------
+
+	const switchImage = (n: number) => {
+		if (!(bgImages && bgImages.length > 0)) return
+		const len = bgImages.length
+		bgImageID.value = (bgImageID.value + n + len) % len
+	}
+
+	const bgImagePath = computed(() => {
+		4
+		return bgImages && bgImages.length > 0 && bgImageID.value !== -1
+			? `url(${withBase(bgImages[bgImageID.value].path)})`
+			: 'none'
+	})
+
+	const bgImageMask = computed(() => {
+		return bgImages && bgImages.length > 0 && bgImageID.value !== -1
+			? bgImages[bgImageID.value].mask
+			: null
+	})
+
+	// -------- Other configs --------
+
+	// const personalInfo = themeLocale.value.personalInfo as PersonalConfig
+</script>
+<style lang="scss" scoped>
+	@import '@theme/styles/layout/home.scss';
+</style>
