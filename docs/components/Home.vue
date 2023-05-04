@@ -68,6 +68,7 @@
 				</span>
 			</div>
 		</div>
+		<!-- 主要内容版心 -->
 		<HomeContainer />
 	</main>
 </template>

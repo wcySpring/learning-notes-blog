@@ -71,6 +71,12 @@ export default {
 	title: 'wcySpring的博客', // 浏览器tab 标题
 	description: 'wcySpring的博客，关于前端 js css typescript ts vue node 等',
 	markdown: {
+		lineNumbers: true,
+		// https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
+		// theme: {
+		// 	light: 'one-dark-pro',
+		// 	dark: 'one-dark-pro',
+		// },
 		config: (md) => {
 			// md.use(customBlockquote)
 			md.block.ruler.before(
@@ -137,7 +143,7 @@ export default {
 		logo: '/my-logo.svg', // 图标
 		// siteTitle: false // 如果有图标没标题设置 为false
 		nav: [
-			{ text: 'Guide', link: '/guide' },
+			{ text: '前端知识整理', link: '/page/frontendFundamentals/' },
 			{ text: 'Configs', link: '/configs' },
 			{ text: 'Changelog', link: 'https://github.com/...' },
 		],
@@ -145,18 +151,27 @@ export default {
 			// 当用户在 `指南` 目录页面下将会展示这个侧边栏
 			'/page/frontendFundamentals/': [
 				{
-					text: 'Guide',
+					text: '前端知识整理',
 					items: [
 						// This shows `/guide/index.md` page.
 						{
-							text: 'Index',
-							link: '/page/frontendFundamentals/浮动--案例',
+							text: 'js基础篇',
+							link: '/page/frontendFundamentals/js基础篇/',
+							items: [
+								{
+									text: '数据类型',
+									link: '/page/frontendFundamentals/js基础篇/数据类型/',
+								},
+							], // 二级菜单
 						}, // /guide/index.md
 						{
-							text: 'Index1',
-							link: '/page/frontendFundamentals/浮动--案例',
+							text: '对象某个属性不存时候判断',
+							link: '/page/frontendFundamentals/js基础篇/对象某个属性不存时候判断',
 						},
-						{ text: 'Two', link: '/guide/two' }, // /guide/two.md
+						{
+							text: '函数参数传递',
+							link: '/page/frontendFundamentals//函数参数传递',
+						}, // /guide/two.md
 					],
 				},
 			],

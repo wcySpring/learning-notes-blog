@@ -55,7 +55,9 @@ addIcons(
 )
 
 import '../theme/styles/root.scss'
-import '../theme/styles/index.css'
+import '../theme/styles/markdown.scss'
+import '../theme/styles/common.scss'
+
 export default {
 	...DefaultTheme,
 

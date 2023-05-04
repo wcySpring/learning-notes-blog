@@ -2,6 +2,22 @@
 
 :root {
 	--homepage-width: 1126px;
+
+	--md-tip-danger-bg: #fdf7f7;
+	--md-tip-danger-border: #d9534f;
+	--md-tip-danger-color: #d9534f;
+
+	--md-tip-success-bg: #f3f8f3;
+	--md-tip-success-border: #50af51;
+	--md-tip-success-color: #50af51;
+
+	--md-tip-warning-bg: #fcf8f2;
+	--md-tip-warning-border: #f0ad4e;
+	--md-tip-warning-color: #f0ad4e;
+
+	--md-tip-info-bg: #f4f8fa;
+	--md-tip-info-border: #5bc0de;
+	--md-tip-info-color: #5bc0de;
 }
 
 @media (max-width: $MQIpad) {

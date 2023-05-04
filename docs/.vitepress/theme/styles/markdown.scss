@@ -1,0 +1,23 @@
+// 自定义markdown样式
+#VPContent blockquote {
+	&.danger {
+		background-color: var(--md-tip-danger-bg);
+		border-color: var(--md-tip-danger-border);
+		color: var(--md-tip-danger-color);
+	}
+	&.success {
+		background-color: var(--md-tip-success-bg);
+		border-color: var(--md-tip-success-border);
+		color: var(--md-tip-success-color);
+	}
+	&.warning {
+		background-color: var(--md-tip-warning-bg);
+		border-color: var(--md-tip-warning-border);
+		color: var(--md-tip-warning-color);
+	}
+	&.info {
+		background-color: var(--md-tip-info-bg);
+		border-color: var(--md-tip-info-border);
+		color: var(--md-tip-info-color);
+	}
+}
