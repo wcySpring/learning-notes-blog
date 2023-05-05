@@ -1,7 +1,7 @@
 import DefaultTheme from 'vitepress/theme'
 import { addIcons, OhVueIcon } from 'oh-vue-icons'
 import {
-	BiLayoutSidebarInset,
+	// BiLayoutSidebarInset,
 	FaChevronDown,
 	FaChevronLeft,
 	FaChevronRight,
@@ -49,7 +49,7 @@ addIcons(
 	FaRegularCalendar,
 	RiTimerLine,
 	FaListUl,
-	BiLayoutSidebarInset,
+	// BiLayoutSidebarInset,
 	HiTranslate,
 	RiSearch2Line
 )
