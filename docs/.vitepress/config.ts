@@ -6,6 +6,10 @@ import personalInfo from './config/personalInfo'
 export default {
 	vite: {
 		plugins: [AutoSidebar({ prefix: '-', collapsed: false })],
+		// ...
+		ssr: {
+			noExternal: ['oh-vue-icons'],
+		},
 	},
 	title: '下划线的学习频道', // 浏览器tab 标题
 	description: 'wcySpring的博客，关于前端 js css typescript ts vue node 等',

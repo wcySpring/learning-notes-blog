@@ -34,3 +34,4 @@ project.iml
 
 # Other
 docs/.vitepress/cache
+docs/.vitepress/dist
