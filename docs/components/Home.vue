@@ -24,7 +24,7 @@
 				</div>
 
 				<div class="hero-info">
-					<h1>wcySpring</h1>
+					<h1>{{ theme.personalInfo.name }}</h1>
 					<div class="description hide-on-mobile">
 						<div>
 							<div>126</div>

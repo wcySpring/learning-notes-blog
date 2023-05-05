@@ -31,3 +31,6 @@ project.iml
 .vscode/
 *.sublime*
 *.swp
+
+# Other
+docs/.vitepress/cache

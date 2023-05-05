@@ -1,3 +1,4 @@
+// 卡片样式
 .wrapper-card {
 	padding: 10px;
 	border: 1px solid #eaeaea;
@@ -20,3 +21,20 @@
 	transition: all 0.3s;
 	background-color: rgba(255, 255, 255, 0.1);
 }
+
+// scollbar 滚动条样式
+
+html {
+	overflow: overlay;
+}
+
+::-webkit-scrollbar {
+	width: 9px;
+	height: 9px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #cccccc;
+}
+// ---end ----------

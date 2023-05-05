@@ -5,7 +5,7 @@
 				<img :src="withBase(theme.personalInfo.avatar)" alt="hero" />
 			</div>
 
-			<h1 class="description-name">wcySpring</h1>
+			<h1 class="description-name">{{ theme.personalInfo.name }}</h1>
 			<div class="description-num">
 				<div>
 					<div class="num">126</div>
