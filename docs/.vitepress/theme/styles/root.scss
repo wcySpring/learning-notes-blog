@@ -1,5 +1,83 @@
 @import '_variables';
 
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 100;
+	font-display: swap;
+	font-variation-settings: 'wght' 100;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 200;
+	font-display: swap;
+	font-variation-settings: 'wght' 200;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 300;
+	font-display: swap;
+	font-variation-settings: 'wght' 300;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 400;
+	font-display: swap;
+	font-variation-settings: 'wght' 400;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 500;
+	font-display: swap;
+	font-variation-settings: 'wght' 500;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 600;
+	font-display: swap;
+	font-variation-settings: 'wght' 600;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 700;
+	font-display: swap;
+	font-variation-settings: 'wght' 700;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 800;
+	font-display: swap;
+	font-variation-settings: 'wght' 800;
+}
+
+@font-face {
+	font-family: 'dJc4WnD8uJuk';
+	src: url('/fonts/dJc4WnD8uJuk.woff2') format('woff2');
+	font-weight: 900;
+	font-display: swap;
+	font-variation-settings: 'wght' 900;
+}
+
 :root {
 	// --vp-c-brand: #ff7340;
 	// --vp-c-brand-light: #ff5719;
@@ -25,6 +103,17 @@
 	--md-tip-info-bg: #f4f8fa;
 	--md-tip-info-border: #5bc0de;
 	--md-tip-info-color: #5bc0de;
+
+	--vp-font-family-base: 'dJc4WnD8uJuk', 'dJc4WnD8uJuk', -apple-system,
+		BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, 'Fira Sans', 'Droid Sans',
+		'Helvetica Neue', Microsoft YaHei, sans-serif;
+
+	--vp-c-brand: #318c87;
+	--vp-c-brand-light: #47a19c;
+	--vp-c-brand-lighter: #60b2ae;
+	--vp-c-brand-dark: #156e69;
+	--vp-c-brand-darker: #084845;
+	// --vp-c-divider: rgba(0, 0, 0, 0);
 }
 
 @media (max-width: $MQIpad) {
@@ -40,4 +129,14 @@
 		max-width: 100% !important;
 		padding-left: 40px !important;
 	}
+}
+
+.VPSidebarItem.level-1 .text,
+.VPSidebarItem.level-2 .text,
+.VPSidebarItem.level-3 .text,
+.VPSidebarItem.level-4 .text,
+.VPSidebarItem.level-5 .text {
+	// font-weight: 400 !important;
+	color: var(--vp-c-text-2);
+	// font-size: 16px;
 }

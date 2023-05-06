@@ -1,11 +1,10 @@
-import { defineConfig } from 'vitepress'
 import AutoSidebar from './config/autoSidebar'
 import { titlePlugin } from './config/markdownPlugin'
 import personalInfo from './config/personalInfo'
 
 export default {
 	vite: {
-		plugins: [AutoSidebar({ prefix: '-', collapsed: false })],
+		plugins: [AutoSidebar({ prefix: '.', collapsed: false })],
 		// ...
 		ssr: {
 			noExternal: ['oh-vue-icons'],
@@ -17,10 +16,9 @@ export default {
 	markdown: {
 		lineNumbers: true,
 		// https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
-		// theme: {
-		// 	light: 'one-dark-pro',
-		// 	dark: 'one-dark-pro',
-		// },
+
+		theme: 'one-dark-pro',
+
 		config: (md) => {
 			md.block.ruler.before('paragraph', 'myplugin', titlePlugin)
 		},
@@ -28,9 +26,12 @@ export default {
 	themeConfig: {
 		siteTitle: '下划线学习频道', // 设置文档展示页标题
 		logo: '/my-logo.svg', // 图标
+		docFooter: { prev: '上一篇', next: '下一篇' },
+		lastUpdatedText: '最近更新时间',
+
 		// siteTitle: false // 如果有图标没标题设置 为false
 		nav: [
-			{ text: '前端知识整理', link: '/page/frontendFundamentals/' },
+			{ text: '前端知识整理', link: '/前端知识整理/CSS重学/css--单位.html' },
 			{ text: 'Configs', link: '/configs' },
 			{ text: 'Changelog', link: 'https://github.com/...' },
 		],
