@@ -57,10 +57,14 @@ function createSideBarItems(
 			// 是文件夹
 			// 如果侧栏子项的长度为 0，则忽略当前节点
 			const items = createSideBarItems(join(targetPath), ...reset, fname) // 递归生成子项
+			let text = fname
+			if (option.deletePrefix) {
+				text = removePrefix(text, option.deletePrefix)
+			}
 			if (items.length > 0) {
 				// 判断是否做文件夹展开配置
 				const sidebarItem: DefaultTheme.SidebarItem = {
-					text: fname, // 文件夹的名字作为侧栏项的文本
+					text, // 文件夹的名字作为侧栏项的文本
 					items, // 文件夹下的子项作为侧栏项的子项
 				}
 				if (Reflect.has(option, 'collapsed')) {
@@ -80,8 +84,8 @@ function createSideBarItems(
 
 			let fileName = fname.replace(/\.md$/, '') // 去掉文件名中的 .md 后缀
 			let text = fileName // 侧栏项的文本
-			if (option.prefix) {
-				text = removePrefix(text, option.prefix) // 去掉文件名中的前缀
+			if (option.deletePrefix) {
+				text = removePrefix(text, option.deletePrefix) // 去掉文件名中的前缀
 			}
 
 			const item: DefaultTheme.SidebarItem = {

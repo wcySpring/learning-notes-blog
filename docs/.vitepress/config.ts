@@ -3,12 +3,17 @@ import { titlePlugin } from './config/markdownPlugin'
 import personalInfo from './config/personalInfo'
 import { pageList } from './config/pageList'
 import path from 'path'
-console.log(__dirname, 2)
 
 async function config() {
 	return {
 		vite: {
-			plugins: [AutoSidebar({ prefix: '.', collapsed: false })],
+			plugins: [
+				AutoSidebar({
+					deletePrefix: '.',
+					collapsed: false,
+					ignoreList: ['font'],
+				}),
+			],
 			// ...
 			ssr: {
 				noExternal: ['oh-vue-icons'],
@@ -37,7 +42,10 @@ async function config() {
 
 			// siteTitle: false // 如果有图标没标题设置 为false
 			nav: [
-				{ text: '前端知识整理', link: '/前端知识整理/CSS重学/css--单位.html' },
+				{
+					text: '前端知识整理',
+					link: '/A.前端知识整理/CSS重学/css--单位.html',
+				},
 				{ text: 'Configs', link: '/configs' },
 				{ text: 'Changelog', link: 'https://github.com/...' },
 			],
@@ -71,7 +79,7 @@ async function config() {
 				// },
 			],
 			// 文章列表
-			pageList: await pageList(['docs/前端知识整理/**/*.md']),
+			pageList: await pageList(['docs/A.前端知识整理/**/*.md']),
 		},
 	}
 }

@@ -4,14 +4,18 @@ import matter from 'gray-matter'
 import fg from 'fast-glob'
 import gitlog from 'gitlog'
 import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 
-type PageInfoType = {
+dayjs.extend(relativeTime)
+
+export type PageInfoType = {
 	title: string
 	authorDate: string
 	description: string
 	date: string
 	tags: string[]
 	path: string // 文章地址
+	updateTime: string // 距离上次更新时间
 }
 
 // 排序
@@ -26,9 +30,20 @@ function getFileInfoByGit(file: string) {
 		repo: '.', // git 仓库路径
 		number: 1, // 最多检索的提交数
 	})
-	commits.authorDate =
-		dayjs(commits.authorDate).format('YYYY-MM-DD HH:mm:ss') || ''
-	return commits
+
+	if (commits) {
+		commits.authorDate =
+			dayjs(commits?.authorDate).format('YYYY-MM-DD HH:mm:ss') || ''
+		return commits
+	} else {
+		return {
+			authorName: '',
+			abbrevHash: '',
+			hash: '',
+			subject: '',
+			authorDate: '',
+		}
+	}
 }
 
 // 获取文件信息md
@@ -50,23 +65,29 @@ export function getFileInfo(file: string) {
 	const fileInfoByMD = getFileInfoByMD(file)
 	const fileInfoByGit = getFileInfoByGit(file)
 	// 文章更新日期
-	const date =
+	let date = ''
+	date =
 		dayjs(fileInfoByMD.date || fileInfoByGit?.authorDate).format(
 			'YYYY-MM-DD HH:mm:ss'
 		) || ''
+
+	const src = file.split('docs/')[1]
+	const tag = src.split('/')[0]
+	const tags = fileInfoByMD.tags ? [tag, ...fileInfoByMD.tags] : [tag]
+
 	return {
 		title: fileInfoByMD?.title || name,
 		authorDate: fileInfoByMD.authorName || fileInfoByGit?.authorName,
 		description: fileInfoByMD.description || fileInfoByGit?.subject,
 		date,
-		tags: fileInfoByMD?.tags || [],
-		path: file,
+		tags,
+		path: src,
+		updateTime: dayjs().to(dayjs(date)),
 	}
 }
 
 // 获取文件列表
 export async function pageList(pagesPath: string[]) {
-	console.log(__dirname, 12)
 	const root = process.cwd()
 	// 获取文件根目录
 
@@ -77,7 +98,6 @@ export async function pageList(pagesPath: string[]) {
 
 	let getMDfiles = await Promise.all(all)
 	const files = getMDfiles.flat(Infinity) as string[]
-	console.log(files, 111)
 
 	return pageLsInfo(files).sort(_compareDate)
 	// {

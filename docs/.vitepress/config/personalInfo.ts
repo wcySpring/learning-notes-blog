@@ -2,14 +2,13 @@
 export default {
 	name: '下划线', // 作者名字
 	introduction:
-		'Hi,欢迎来到我的blog频道,目前是一个在职前端开发，记录更新每天学到的知识，动一动你的小手给我的GitHub点个小星星', // 简短介绍
-	interested:
-		'我的兴趣不上班,在家里待着就是最大的兴趣，如果你有好的开源项目需要人手可以联系我，我很愿意尝试在社区里进行开源项目的参与',
-	learning: '目前我正在学习nodejs/java。前端也在一直学习中',
-	reachMe: '如果你的城市也在DL的,有好的岗位可以联系我',
+		'Hi,欢迎来到我的blog频道,目前是一个在职前端开发，记录更新每天学到的知识', // 简短介绍
+	interested: '目前主要从事前端开发工作，主要技术使用 vue2 vue3，欢迎组队一起',
+	learning: '正在学习的技能 node java  小程序',
+	reachMe: '如果你的工作正缺人手，可以通过邮箱联系我哦~',
 	avatar: '/img/avatar.jpeg', // 头像
 	description:
-		'这个博客的主题参考了 VuePress-- Renovamen/vuepress-theme-gungnir 项目地址https://github.com/Renovamen/vuepress-theme-gungnir',
+		'前端开发工程师，随时准备好接受新的挑战，如果我的笔记帮到了你，给github点个star吧~',
 	sns: {
 		github: '/wcySpring/learning-notes-blog',
 		linkedin: '',
