@@ -153,8 +153,7 @@ export default function VitePluginVitepressAutoSidebar(opt: any = {}) {
 			// increment ignore item
 			const docsPath = join(process.cwd(), path)
 			// create sidebar data and insert
-			config.vitepress.site.themeConfig.sidebar =
-				createSidebarMulti(docsPath)
+			config.vitepress.site.themeConfig.sidebar = createSidebarMulti(docsPath)
 			log('injected sidebar data successfully')
 
 			return config

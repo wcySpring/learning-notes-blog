@@ -58,8 +58,11 @@ import '../theme/styles/root.scss'
 import '../theme/styles/markdown.scss'
 import '../theme/styles/common.scss'
 
+import Layout from '../../components/Layout.vue'
+
 export default {
 	...DefaultTheme,
+	Layout: Layout,
 
 	enhanceApp({ app, router, siteData }) {
 		app.component('VIcon', OhVueIcon)

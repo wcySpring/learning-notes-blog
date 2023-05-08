@@ -10,7 +10,7 @@
 		margin: 0 auto;
 		position: relative;
 		box-sizing: border-box;
-		height: calc(100vh - 50px);
+		height: 380px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -125,12 +125,9 @@
 
 			.hero-info {
 				background: rgba(0, 0, 0, 0.5);
-				width: 100%;
 				padding: 17px;
-				letter-spacing: 0;
 				border-radius: 10px;
 				box-sizing: initial;
-				white-space: nowrap;
 				margin-top: 20px;
 				color: white;
 
@@ -142,7 +139,6 @@
 				}
 				.description {
 					display: flex;
-					padding-top: 20px;
 					justify-content: center;
 					> div {
 						flex: 1;

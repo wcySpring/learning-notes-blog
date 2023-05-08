@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<div class="sns">
-			<SNS class="hide-on-mobile" large />
+			<!-- <SNS class="hide-on-mobile" large /> -->
 		</div>
 	</div>
 </template>
