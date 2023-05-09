@@ -2,9 +2,18 @@ import AutoSidebar from './config/autoSidebar'
 import { titlePlugin } from './config/markdownPlugin'
 import personalInfo from './config/personalInfo'
 import { pageList } from './config/pageList'
-import path from 'path'
+import { DefaultTheme, UserConfig } from 'vitepress'
 
-async function config() {
+async function config(): Promise<
+	UserConfig<DefaultTheme.Config> & {
+		vite: any
+		themeConfig: {
+			personalInfo: any
+			homeHeaderImages: any
+			pageList: Promise<any[]>
+		}
+	}
+> {
 	return {
 		vite: {
 			plugins: [
@@ -24,17 +33,18 @@ async function config() {
 		description: 'wcySpring的博客，关于前端 js css typescript ts vue node 等',
 		markdown: {
 			lineNumbers: true,
-			// https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
 
+			// https://github.com/shikijs/shiki/blob/main/docs/themes.md#all-themes
 			theme: 'one-dark-pro',
 
 			config: (md) => {
 				md.block.ruler.before('paragraph', 'myplugin', titlePlugin)
 			},
 		},
-		// lastUpdated: true, //显示最近更新时间
+		lastUpdated: true, //显示最近更新时间
 
 		themeConfig: {
+			outline: 'deep', // 显示文章右侧标题大纲
 			siteTitle: '下划线学习频道', // 设置文档展示页标题
 			logo: '/my-logo.svg', // 图标
 			docFooter: { prev: '上一篇', next: '下一篇' },
@@ -49,7 +59,7 @@ async function config() {
 				{ text: 'Configs', link: '/configs' },
 				{ text: 'Changelog', link: 'https://github.com/...' },
 			],
-			outlineTitle: 'In hac pagina',
+			outlineTitle: '快速预览',
 
 			footer: {
 				message: 'Released under the MIT License.',
