@@ -4,16 +4,7 @@ import personalInfo from './config/personalInfo'
 import { pageList } from './config/pageList'
 import { DefaultTheme, UserConfig } from 'vitepress'
 
-async function config(): Promise<
-	UserConfig<DefaultTheme.Config> & {
-		vite: any
-		themeConfig: {
-			personalInfo: any
-			homeHeaderImages: any
-			pageList: Promise<any[]>
-		}
-	}
-> {
+async function config() {
 	return {
 		vite: {
 			plugins: [
@@ -28,6 +19,7 @@ async function config(): Promise<
 				noExternal: ['oh-vue-icons'],
 			},
 		},
+		ignoreDeadLinks: true,
 		base: '/learning-notes-blog/',
 		title: '下划线的学习频道', // 浏览器tab 标题
 		description: 'wcySpring的博客，关于前端 js css typescript ts vue node 等',
