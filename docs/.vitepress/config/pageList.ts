@@ -28,7 +28,7 @@ function getFileInfoByGit(file: string) {
 	const [commits] = gitlog({
 		branch: 'main', // 分支
 		file, // 文件路径
-		repo: '.', // git 仓库路径
+		repo: __dirname, // git 仓库路径
 		number: 1, // 最多检索的提交数
 	})
 
@@ -62,10 +62,13 @@ function pageLsInfo(files: string[]) {
 
 // 获取文件信息
 export function getFileInfo(file: string) {
-	const name = path.basename(file, '.md')
 	// 通过md 获取文件信息
 	const fileInfoByMD = getFileInfoByMD(file)
 	const fileInfoByGit = getFileInfoByGit(file)
+
+	// 文章标题
+	const title = fileInfoByMD?.title || path.basename(file, '.md')
+
 	// 文章更新日期
 	let date = ''
 	date =
@@ -78,7 +81,7 @@ export function getFileInfo(file: string) {
 	const tags = fileInfoByMD.tags ? [tag, ...fileInfoByMD.tags] : [tag]
 
 	return {
-		title: fileInfoByMD?.title || name,
+		title,
 		authorDate: fileInfoByMD.authorName || fileInfoByGit?.authorName,
 		description: fileInfoByMD.description || fileInfoByGit?.subject,
 		date,
