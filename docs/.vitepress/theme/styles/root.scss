@@ -79,9 +79,6 @@
 }
 
 :root {
-	--homepage-width: 1126px;
-	--homepage-bg: #f2f3f5;
-
 	--md-tip-danger-bg: #fdf7f7;
 	--md-tip-danger-border: #d9534f;
 	--md-tip-danger-color: #d9534f;
@@ -141,4 +138,26 @@
 	// font-weight: 400 !important;
 	color: var(--vp-c-text-2);
 	// font-size: 16px;
+}
+
+:root.dark {
+	--homepage-width: 1126px;
+	--homepage-bg: var(--vp-c-bg);
+	--docs-list-bg: #1e1e20;
+	--docs-info-bg: #1e1e20;
+	--docs-info-h-bg: #101014;
+	--card--info-bg: #1e1e20;
+	--card--info-color: #fff;
+	--page--num-color: #fff;
+}
+
+:root:not(.dark) {
+	--homepage-width: 1126px;
+	--homepage-bg: #f2f3f5;
+	--docs-list-bg: #fff;
+	--docs-info-bg: rgba(255, 255, 255, 0.1);
+	--docs-info-h-bg: #fff;
+	--card--info-bg: #ffffff1a;
+	--card--info-color: #000;
+	--page--num-color: #444458;
 }

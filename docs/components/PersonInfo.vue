@@ -96,7 +96,7 @@
 		text-align: center;
 		font-weight: 700;
 		font-size: 22px;
-		color: #000;
+		color: var(--card--info-color);
 		line-height: 22px;
 		margin-top: 10px;
 	}
@@ -108,12 +108,12 @@
 			flex: 1;
 			text-align: center;
 			.title {
-				color: #444458;
+				color: var(--page--num-color);
 				font-weight: 700;
 				font-size: 14px;
 			}
 			.num {
-				color: #000;
+				color: var(--card--info-color);
 				// font-weight: 700;
 				font-size: 18px;
 			}

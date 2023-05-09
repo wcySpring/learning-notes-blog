@@ -22,7 +22,7 @@
 	.docs-list-wrap {
 		margin-top: 20px;
 		flex: auto;
-		background-color: #fff;
+		background-color: var(--docs-list-bg);
 		border-radius: 4px;
 		// height: 100%;
 	}

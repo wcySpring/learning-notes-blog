@@ -6,7 +6,7 @@
 	border-radius: 0.25rem;
 	box-sizing: border-box;
 	transition: all 0.3s;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: var(--docs-info-bg);
 }
 .wrapper-card:hover {
 	box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
@@ -19,7 +19,7 @@
 	border-radius: 0.25rem;
 	box-sizing: border-box;
 	transition: all 0.3s;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: var(--docs-info-bg);
 }
 
 // scollbar 滚动条样式

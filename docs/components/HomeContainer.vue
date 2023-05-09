@@ -74,7 +74,7 @@
 	.wrapper-info {
 		display: flex;
 		flex-direction: column;
-		background-color: #fff;
+		background-color: var(--card--info-bg);
 		border-radius: 10px;
 		padding: 20px;
 	}
@@ -82,7 +82,7 @@
 	.wrapper-info div {
 		margin-top: 10px;
 		font-size: 14px;
-		color: #000;
+		color: var(--card--info-color);
 	}
 
 	.emoji {
