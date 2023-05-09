@@ -5,15 +5,20 @@ import { pageList } from './config/pageList'
 import { DefaultTheme, UserConfig } from 'vitepress'
 import gitlog from 'gitlog'
 import fs from 'fs'
-
+import path from 'path'
 function a() {
 	const commit = gitlog({
 		repo: __dirname,
 		branch: 'main', // 指定正确的分支名称
 		number: 1,
 	})[0]
-	fs.writeFileSync('commit.json', JSON.stringify(commit))
-	console.log('Last commit:', commit)
+	console.log(__dirname, 111111111)
+
+	fs.writeFileSync(
+		path.join(__dirname, '../public/a.json'),
+		JSON.stringify(commit)
+	)
+	// console.log('Last commit:', commit)
 }
 
 async function config() {
