@@ -26,6 +26,7 @@ function _compareDate(obj1: PageInfoType, obj2: PageInfoType) {
 // 获取文件信息git
 function getFileInfoByGit(file: string) {
 	const [commits] = gitlog({
+		branch: 'main', // 分支
 		file, // 文件路径
 		repo: '.', // git 仓库路径
 		number: 1, // 最多检索的提交数
@@ -48,8 +49,9 @@ function getFileInfoByGit(file: string) {
 
 // 获取文件信息md
 function getFileInfoByMD(file: string) {
-	const content = fs.readFileSync(file, 'utf-8')
-	const { data } = matter(content)
+	const fileContents = fs.readFileSync(file, 'utf-8')
+	const { data } = matter(fileContents)
+
 	return data
 }
 
@@ -100,10 +102,4 @@ export async function pageList(pagesPath: string[]) {
 	const files = getMDfiles.flat(Infinity) as string[]
 
 	return pageLsInfo(files).sort(_compareDate)
-	// {
-	// 	tableData: ls,
-	// 	total: ls.length,
-	// 	currentPage: 1,
-	// 	pageSize: 10,
-	// }
 }

@@ -79,14 +79,8 @@
 }
 
 :root {
-	// --vp-c-brand: #ff7340;
-	// --vp-c-brand-light: #ff5719;
-	// --vp-c-brand-lighter: #ff7340;
-	// --vp-c-brand-lighter: rgba(255, 135, 23, 0.25);
-	// --vp-c-brand-dark: #ff622d;
-	// --vp-c-brand-darker: #e23c00;
-
 	--homepage-width: 1126px;
+	--homepage-bg: #f2f3f5;
 
 	--md-tip-danger-bg: #fdf7f7;
 	--md-tip-danger-border: #d9534f;
@@ -114,6 +108,11 @@
 	--vp-c-brand-dark: #156e69;
 	--vp-c-brand-darker: #084845;
 	// --vp-c-divider: rgba(0, 0, 0, 0);
+}
+
+.VPHome,
+.VPFooter {
+	background-color: var(--homepage-bg) !important;
 }
 
 @media (max-width: $MQIpad) {

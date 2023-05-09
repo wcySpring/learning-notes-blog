@@ -20,7 +20,10 @@
 
 <style lang="scss" scoped>
 	.docs-list-wrap {
+		margin-top: 20px;
 		flex: auto;
-		padding: 10px 0;
+		background-color: #fff;
+		border-radius: 4px;
+		// height: 100%;
 	}
 </style>

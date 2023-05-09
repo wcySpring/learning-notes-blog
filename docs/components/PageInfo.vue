@@ -1,17 +1,18 @@
 <template>
 	<div>
 		<a class="wrapper-card docs" :href="info.path.replace('.md', '.html')">
+			<div class="docs-header">
+				<div class="data">✍️{{ info.authorDate }}</div>
+
+				<div class="data">{{ info.updateTime }}</div>
+				<div class="data">🔗 {{ info.tags.join(' ') }}</div>
+			</div>
 			<div class="docs-title">{{ info.title }}</div>
+			<div class="docs-desc">
+				{{ info.description }}
+			</div>
 			<div class="docs-footer">
-				<span class="docs-info">✍️{{ info.authorDate }}</span>
 				<span class="docs-info">🕐{{ info.date }}</span>
-				<span class="docs-info docs-tag">
-					🔗 {{ info.tags.join(' ') }}
-					<!-- <a v-for="tag in item.tags" class="docs-info docs-tag" :style="{color:tag===props.filter?'var(--vp-home-hero-name-color)':'#7f7f7f'}" :key="tag"
-              :href="`/categories?tag=${tag}&type=tag`" target="_blank">
-              <span >{{ tag }}</span>
-            </a> -->
-				</span>
 			</div>
 		</a>
 	</div>
@@ -35,18 +36,46 @@
 	.docs {
 		display: block;
 		padding: 16px 20px;
-		margin-bottom: 20px;
+		// margin-bottom: 20px;
 		box-sizing: border-box;
 		cursor: pointer;
+		border-left: none;
+		border-right: none;
+		border-top: none;
+	}
+	.docs:hover {
+		box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.5);
+		background-color: #fafafa;
 	}
 
-	// .docs:hover {
-	// 	box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.2);
-	// }
-
-	.docs-footer > span {
-		margin-right: 10px;
+	.docs-header {
 		font-size: 12px;
+		display: flex;
+		align-items: center;
+		.data {
+			font-size: 12px;
+			margin-right: 15px;
+			&:hover {
+				color: var(--vp-home-hero-name-color) !important;
+			}
+		}
+	}
+	.docs-desc {
+		color: #909090;
+		font-size: 13px;
+		line-height: 22px;
+		display: -webkit-box;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+	}
+	.docs-footer {
+		text-align: end;
+		& > span {
+			margin-right: 10px;
+			font-size: 12px;
+		}
 	}
 
 	.docs-title {
@@ -74,14 +103,5 @@
 	.docs-title:hover::after {
 		visibility: visible;
 		transform: scaleX(1);
-	}
-
-	.docs-info {
-		color: #7f7f7f;
-		margin-right: 10px;
-	}
-
-	.docs-tag:hover {
-		color: var(--vp-home-hero-name-color) !important;
 	}
 </style>
