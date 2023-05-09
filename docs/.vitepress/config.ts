@@ -5,22 +5,22 @@ import { pageList } from './config/pageList'
 import { DefaultTheme, UserConfig } from 'vitepress'
 import gitlog from 'gitlog'
 import fs from 'fs'
+
+function a() {
+	const commit = gitlog({
+		repo: __dirname,
+		branch: 'main', // 指定正确的分支名称
+		number: 1,
+	})[0]
+	fs.writeFileSync('commit.json', JSON.stringify(commit))
+	console.log('Last commit:', commit)
+}
+
 async function config() {
 	return {
 		vite: {
-			build: {
-				// ...
-				afterBuild: async () => {
-					const commit = gitlog({
-						repo: __dirname,
-						branch: 'main', // 指定正确的分支名称
-						number: 1,
-					})[0]
-					fs.writeFileSync('dist/commit.json', JSON.stringify(commit))
-					console.log('Last commit:', commit)
-				},
-			},
 			plugins: [
+				a,
 				AutoSidebar({
 					deletePrefix: '.',
 					collapsed: false,
