@@ -3,29 +3,11 @@ import { titlePlugin } from './config/markdownPlugin'
 import personalInfo from './config/personalInfo'
 import { pageList } from './config/pageList'
 import { DefaultTheme, UserConfig } from 'vitepress'
-import gitlog from 'gitlog'
-import fs from 'fs'
-import path from 'path'
-function a() {
-	const commit = gitlog({
-		repo: __dirname,
-		branch: 'main', // 指定正确的分支名称
-		number: 1,
-	})[0]
-	console.log(__dirname, 111111111)
-
-	fs.writeFileSync(
-		path.join(__dirname, '../public/a.json'),
-		JSON.stringify(commit)
-	)
-	// console.log('Last commit:', commit)
-}
 
 async function config() {
 	return {
 		vite: {
 			plugins: [
-				a,
 				AutoSidebar({
 					deletePrefix: '.',
 					collapsed: false,
