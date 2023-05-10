@@ -1,4 +1,5 @@
 import AutoSidebar from './config/autoSidebar'
+// import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar'
 import { titlePlugin } from './config/markdownPlugin'
 import personalInfo from './config/personalInfo'
 import { pageList } from './config/pageList'
