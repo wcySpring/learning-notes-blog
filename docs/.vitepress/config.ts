@@ -81,7 +81,10 @@ async function config() {
 				// },
 			],
 			// 文章列表
-			pageList: await pageList(['docs/A.前端知识整理/**/*.md']),
+			pageList: await pageList([
+				'docs/A.前端知识整理/**/*.md',
+				'docs/B.NodeJS学习/**/*.md',
+			]),
 		},
 	}
 }
