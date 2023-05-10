@@ -985,10 +985,10 @@ universalify@^2.0.0:
   resolved "https://registry.npmmirror.com/universalify/-/universalify-2.0.0.tgz#75a4984efedc4b08975c5aeb73f530d02df25717"
   integrity sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==
 
-vite-plugin-vitepress-auto-sidebar@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.npmmirror.com/vite-plugin-vitepress-auto-sidebar/-/vite-plugin-vitepress-auto-sidebar-1.4.1.tgz#0b5ec93a013bf61ece23a7d8a07e0f9b72bca8f7"
-  integrity sha512-IGez9zbsn4XA23eGw4G6F9cLYO7bKMZBHrNg5N25B4EpGAtJ7MaR27h8oJXwBUhGFH6tM1TRIgp13JZaQmxWSA==
+vite-plugin-vitepress-auto-sidebar@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmmirror.com/vite-plugin-vitepress-auto-sidebar/-/vite-plugin-vitepress-auto-sidebar-1.5.0.tgz#fe6cff0319f8e2059dbff0e05bb151ac47b1cc0e"
+  integrity sha512-34+G3qQUAfVNJwWkpqaZz3c3ZSPtaQln68vvHp9rwuWYPvwhM9mALkAO18Mz8Hp1Xuc3B/9sNxZnn9V+3YZDmw==
   dependencies:
     "@typescript-eslint/parser" "^5.59.2"
     picocolors "^1.0.0"

@@ -1,5 +1,5 @@
-import AutoSidebar from './config/autoSidebar'
-// import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar'
+// import AutoSidebar from './config/autoSidebar'
+import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar'
 import { titlePlugin } from './config/markdownPlugin'
 import personalInfo from './config/personalInfo'
 import { pageList } from './config/pageList'
@@ -10,9 +10,21 @@ async function config() {
 		vite: {
 			plugins: [
 				AutoSidebar({
-					deletePrefix: '.',
+					deletePrefix: /\d+\./,
 					collapsed: false,
 					ignoreList: ['font'],
+					// 按照文件名排序
+					beforeCreateSideBarItems(data) {
+						const regex = /^\d+/
+						return data.sort((a, b) => {
+							const aOrder = a.match(regex)?.[0]
+							const bOrder = b.match(regex)?.[0]
+							if (!aOrder || !bOrder) {
+								return 0
+							}
+							return Number(aOrder) - Number(bOrder)
+						})
+					},
 				}),
 			],
 			// ...

@@ -25,6 +25,6 @@
 		"dayjs": "^1.11.7",
 		"markdown-it-container": "^3.0.0",
 		"oh-vue-icons": "^1.0.0-rc3",
-		"vite-plugin-vitepress-auto-sidebar": "^1.4.1"
+		"vite-plugin-vitepress-auto-sidebar": "^1.5.0"
 	}
 }
