@@ -46,9 +46,9 @@ async function config() {
 			nav: [
 				{
 					text: '前端知识整理',
-					link: '/A.前端知识整理/CSS重学/css--单位.html',
+					link: '/A.前端知识整理/JS基础/数据类型/2.数据类型检测.html',
 				},
-				{ text: 'Configs', link: '/configs' },
+				{ text: 'NodeJS学习', link: '/B.NodeJS学习/1.基础' },
 				{ text: 'Changelog', link: 'https://github.com/...' },
 			],
 			outlineTitle: '快速预览',

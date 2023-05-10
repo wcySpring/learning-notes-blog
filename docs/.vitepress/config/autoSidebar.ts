@@ -47,6 +47,22 @@ function createSideBarItems(
 ): DefaultTheme.SidebarItem[] {
 	const { ignoreIndexItem } = option
 	let node = readdirSync(join(targetPath, ...reset)) // 读取指定目录的文件夹和文件
+
+	// 排序
+	node.sort((a, b) => {
+		const indexA = a.indexOf(option.deletePrefix)
+		const indexB = b.indexOf(option.deletePrefix)
+		if (indexA === -1 && indexB === -1) {
+			return 0
+		} else if (indexA === -1) {
+			return 1
+		} else if (indexB === -1) {
+			return -1
+		} else {
+			return indexA - indexB
+		}
+	}) // 按照文件名排序
+
 	if (ignoreIndexItem && node.length === 1 && node[0] === 'index.md') {
 		// 如果开启了 ignoreIndexItem 选项并且只有一个 index.md 文件
 		return [] // 那么返回空数组
