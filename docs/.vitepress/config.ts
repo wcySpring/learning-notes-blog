@@ -3,7 +3,6 @@ import AutoSidebar from 'vite-plugin-vitepress-auto-sidebar'
 import { titlePlugin } from './config/markdownPlugin'
 import personalInfo from './config/personalInfo'
 import { pageList } from './config/pageList'
-import { DefaultTheme, UserConfig } from 'vitepress'
 
 async function config() {
 	return {
@@ -94,10 +93,16 @@ async function config() {
 				// },
 			],
 			// 文章列表
-			pageList: await pageList([
-				'docs/A.前端知识整理/**/*.md',
-				'docs/B.NodeJS学习/**/*.md',
-			]),
+			pageList: await pageList(
+				['docs/A.前端知识整理/**/*.md', 'docs/B.NodeJS学习/**/*.md'],
+				{
+					titleConfig(title) {
+						console.log(123, title.replace(/\d+\./, ''))
+
+						return title.replace(/\d+\./, '')
+					},
+				}
+			),
 		},
 	}
 }

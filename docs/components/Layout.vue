@@ -8,7 +8,7 @@
 					>✍️ {{ pageInfo?.authorDate }}</span
 				>
 				<span class="page-info" v-show="pageInfo?.date">
-					🕒 {{ pageInfo?.date }}({{ pageInfo?.updateTime }})</span
+					🕒 {{ pageInfo?.date }}({{ updateTime }})</span
 				>
 				<span class="page-info" v-show="pageInfo?.tags">
 					🔗 {{ pageInfo?.tags?.join(' ') }}</span
@@ -22,7 +22,10 @@
 	import { computed } from 'vue'
 	import DefaultTheme from 'vitepress/theme'
 	import { useData } from 'vitepress'
+	import dayjs from 'dayjs'
+	import relativeTime from 'dayjs/plugin/relativeTime'
 
+	dayjs.extend(relativeTime)
 	const { Layout } = DefaultTheme
 
 	const { page, theme } = useData()
@@ -32,6 +35,8 @@
 			(item) => item.path === page.value.relativePath
 		)
 	})
+
+	const updateTime = computed(() => dayjs().to(dayjs(pageInfo.value.date)))
 </script>
 <style>
 	.title {

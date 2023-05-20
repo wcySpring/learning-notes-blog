@@ -15,7 +15,6 @@ export type PageInfoType = {
 	date: string
 	tags: string[]
 	path: string // 文章地址
-	updateTime: string // 距离上次更新时间
 }
 
 // 排序
@@ -87,12 +86,11 @@ export function getFileInfo(file: string) {
 		date,
 		tags,
 		path: src,
-		updateTime: dayjs().to(dayjs(date)),
 	}
 }
 
 // 获取文件列表
-export async function pageList(pagesPath: string[]) {
+export async function pageList(pagesPath: string[], options?: any) {
 	const root = process.cwd()
 	// 获取文件根目录
 
@@ -104,5 +102,10 @@ export async function pageList(pagesPath: string[]) {
 	let getMDfiles = await Promise.all(all)
 	const files = getMDfiles.flat(Infinity) as string[]
 
-	return pageLsInfo(files).sort(_compareDate)
+	return pageLsInfo(files)
+		.sort(_compareDate)
+		.map((info) => {
+			info.title = options.titleConfig(info.title)
+			return info
+		})
 }

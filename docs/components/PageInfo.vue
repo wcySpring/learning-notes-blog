@@ -4,7 +4,7 @@
 			<div class="docs-header">
 				<div class="data">✍️{{ info.authorDate }}</div>
 
-				<div class="data">{{ info.updateTime }}</div>
+				<div class="data">{{ updateTime }}</div>
 				<div class="data">🔗 {{ info.tags.join(' ') }}</div>
 			</div>
 			<div class="docs-title">{{ info.title }}</div>
@@ -19,6 +19,14 @@
 </template>
 
 <script setup lang="ts">
+	import { computed } from 'vue'
+
+	import dayjs from 'dayjs'
+	import relativeTime from 'dayjs/plugin/relativeTime'
+
+	dayjs.extend(relativeTime)
+	const updateTime = computed(() => dayjs().to(dayjs(props.info.date)))
+
 	const props = defineProps<{
 		info: {
 			title: string
@@ -27,7 +35,6 @@
 			date: string
 			tags: string[]
 			path: string // 文章地址
-			updateTime: string // 距离上次更新时间
 		}
 	}>()
 </script>
