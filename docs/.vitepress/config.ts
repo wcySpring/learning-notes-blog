@@ -60,7 +60,11 @@ async function config() {
 					text: '前端知识整理',
 					link: '/A.前端知识整理/JS基础/数据类型/2.数据类型检测.html',
 				},
-				{ text: 'NodeJS学习', link: '/B.NodeJS学习/1.基础' },
+				{ text: 'NodeJS学习', link: '/B.NodeJS学习/1.什么是NodeJS.html' },
+				{
+					text: '前端工程化',
+					link: '/C.前端工程化/包管理工具/1.出识包管理工具.html',
+				},
 				{ text: 'Changelog', link: 'https://github.com/...' },
 			],
 			outlineTitle: '快速预览',
@@ -94,11 +98,13 @@ async function config() {
 			],
 			// 文章列表
 			pageList: await pageList(
-				['docs/A.前端知识整理/**/*.md', 'docs/B.NodeJS学习/**/*.md'],
+				[
+					'docs/A.前端知识整理/**/*.md',
+					'docs/B.NodeJS学习/**/*.md',
+					'docs/C.前端工程化/**/*.md',
+				],
 				{
 					titleConfig(title) {
-						console.log(123, title.replace(/\d+\./, ''))
-
 						return title.replace(/\d+\./, '')
 					},
 				}
