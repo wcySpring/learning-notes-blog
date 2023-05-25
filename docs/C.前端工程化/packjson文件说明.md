@@ -169,3 +169,167 @@ require('find');
 4. 如果没有index.js查看该文件夹中的package.json中的main选项确定模块入口文件否则找不到报错
 
 往往来说main 就已经足够了当然可以参看这个文章中其他配置  https://segmentfault.com/a/1190000019438150
+
+
+## scripts -- 指令集合
+
+scripts属性用于配置一些脚本命令，以键值对的形式存在 ，配置后我们可以通过 npm run 命令的key来执行这个命令，对于常用的 start、 test、stop、restart可以省略掉run直接通过 npm start等方式运行
+
+其实  npm run 指令全称是 `npm run-script <command> [--silent] [-- <args>...]`
+
+~~~json
+"scripts": {
+  "serve": "vue-cli-service serve",
+  ...
+}
+~~~
+
+配置指令可以通过npm run 生效的，本质上执行的是'Shell（一般是 Bash）可以运行的命令',shell是依赖于平台的。查看执行'shell' 脚本位置 使用指令'npm config get shell',执行完后我的本机配置环境输出结果为'C:\Windows\system32\cmd.exe',就说明实际是'window'系统的'cmd'命令行工具。默认情况下, Unix-like 操作系统是'/bin/sh'指令, Windows 操作系统是'cmd.exe'。 实际的被'/bin/sh'引用的shell也依赖于平台。'npm@5.1.0'你可以使用'script-shell'自定义你的shell配置。
+
+可以通过 `npm config set script-shell \"C:\\Program Files\\Git\\bin\\bash.exe\" `去设置shell 平台
+
+利用钩子去设置
+~~~json
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo 'Hello, World!'",
+    "build": "npm run test",
+    "start": "npm run build",
+    "preinstall": "npm config set script-shell \"C:\\Program Files\\Git\\bin\\bash.exe\""
+  }
+}
+~~~
+
+
+### 可运行的脚本
+
+在npm run 执行的scripts 本质是对应系统所对应的shell 脚本，因此 scripts 的脚本整体分为三种
+
+* **内部自带指令**，在win 实际运行在'cmd'中执行的命令，因此系统cmd的内部命令，不需要安装额外的插件，就可以直接执行，在'npm'的'scripts'中都可以执行,举个例子：
+~~~json
+"scripts":{
+	/*系统命令*/
+      "ip":"ipconfig"
+ }
+ ~~~
+
+* **执行外部命令**，我们如果安装了node,git等客户端，可以直接在cmd窗口执行（需配置了系统的环境变量）举个例子当安装了 node 后，我们可以直接在控制台输入'node -v' 来查看node 版本信息因此也可以执行下面列子
+~~~json
+"scripts":{
+
+    /*全局外部命令*/
+    "git":"git --version",
+    "node":"node -v",
+
+}
+~~~
+
+* **执行项目内部**,在安装类似'vuecli'、'webpack'、'eslint'等项目时，会自动将当前项目的'node_modules/.bin'找到对应的脚本，例如`{"test": "mocha test"} 等同于 {"test": " ./node_modules/.bin/mocha"}` 也就是说 mocha test 指令可以这么缩写完全是npm 帮我们自动找了组成实际应运行的脚本指令 " ./node_modules/.bin/mocha" 
+
+
+
+### 全局安装的包和局部安装包
+
+非全局安装的时候，当想执行eslint 时候需要我们在scripts 标签配置好脚本，举个例子 `scripts:{"eslint-version":"eslint --version"}` ,只需要执行'npm run eslint-version',如果不想配置'scripts' 其他的执行方法" .\node_modules\.bin\eslint.cmd --version" 直接指定运行"node_modules\.bin" 文件下的脚本 或者 'node  .\node_modules\eslint\bin\eslint.js --version' 直接具体到运行的脚本目录
+
+
+全局安装一些包例如'eslint' 直接执行'eslint' 就可以在全局运行，这是因为你在全局安装时候会在node 的文件所在目录自动添加一个执行shell 脚本，并且node 路径在系统path 中因此可以直接调用
+
+::: tip 
+node 可以直接运行完全是 电脑 path 配置
+
+![](/images/前端工程化_path.png)
+
+:::
+
+### 对npm 执行脚本一个总结
+'npm run '在执行对应的'scripts' 是对应的执行窗口调用响应命令而非npm 去调用，是npm 去将具体调用shell指令给到了执行窗口，在通过node 进行了调用，之前介绍过本地的话会找到"node_modules\.bin" 以esbuild 的 "node_modules\.bin\esbuild" 文件内容去看也能发现（这里以cmd 的脚本） 是通过node执行的
+~~~shell
+@IF EXIST "%~dp0\node.exe" (
+  "%~dp0\node.exe"  "%~dp0\..\esbuild\bin\esbuild" %*
+) ELSE (
+  @SETLOCAL
+  @SET PATHEXT=%PATHEXT:;.JS;=;%
+  node  "%~dp0\..\esbuild\bin\esbuild" %*
+)
+~~~
+
+已经知道 脚本最后是node 执行了，现在也可以知道我们在执行一些命令时候他的传参原理 例如来分析一组指令
+~~~json
+"scripts": {
+  "serve": "vue-cli-service serve --mode=dev --mobile -config build/example.js"
+}
+~~~
+当执行'npm run serve' 实际执行的是"node_modules/cli-service'，帮我们间接执行了"node node_modules/@vue\cli-service\bin\vue-cli-service.js  --mode=dev --mobile -config build/example.js" '
+
+* "node_modules/cli-service' 脚本如图
+![](/images/前端工程化_vueclicmd.png)
+
+已经知道本质是node 那就可以知道 'node' 调用时候可以通过'process.argv' 获取一个返回的数组于'process.argv'，这个数组包含了启动node进程时的命令行参数。第一个元素为启动node 进程的可执行文件的绝对路径名process.execPath，第二个元素为当前执行的JavaScript文件路径。剩余的元素为其他命令行参数。如下图自己做的一个js 打印（可以去其他第三方包去看他们实现） **可以用一些第三方工具包 minimist 或者 yargs 等参数解析工具来对命令行参数进行解**
+![](/images/前端工程化_processagv.png)
+
+### 为啥能npm run 执行脚本
+
+那为什么我的脚本在 scripts 通过npm 执行 scripts 脚本可以做到这种匹配，换句话说我我在 shell 脚本的控制台直接输入 "vue-cli-service" 或者 "npm vue-cli-service" 不生效呢？首先所有的脚本能直接在命令行上执行原因就是在他们已经 电脑系统的path 注册了
+
+在windows 下你可以通过 cmd 下执行 set
+
+![](/images/前端工程化_windowspaht.png)
+
+
+在linux  下执行env 查看
+
+![](/images/前端工程化_linuxpaht.png.png)
+
+
+* node 可以直接运行完全是 电脑 path 配置
+
+![](/images/前端工程化_path.png)
+
+因此  "vue-cli-service"（全局安装是另外原因） 和  "npm vue-cli-service"（npx 特殊） 这种执行形式肯定是失效的，那在 npm run 时候会自动新建一个Shell，这个 Shell会将当前项目的node_modules/.bin的绝对路径加入到环境变量PATH中，执行结束后，再将环境变量PATH恢复原样。
+
+执行查看 npm run env 的时候的环境变量，可以看到运行时的PATH环境变量多了两个路径：npm指令路径和**项目中node_modules/.bin的绝对路径**
+![](/images/前端工程化_npmpath.png)
+
+所以，通过npm run可以在不添加路径前缀的情况下直接访问当前项目node_modules/.bin目录里面的可执行文件
+
+## bin
+
+执行项目内部的script 会去执行 bin 文件，bin 文件生成是在package.json中的字段 bin 中配置的，表示的是一个可执行文件到指定文件源的映射。通过npm bin指令显示当前项目的bin目录的路径
+
+~~~json
+{ "bin" : { "myapp" : "./cli.js" } }
+~~~
+它的工作方式 模块安装的时候，若是全局安装，则'npm'会为'bin'中配置的文件在bin目录下创建一个软连接（对于windows系统，默认会在'C:\\Users\\username\\AppData\\Roaming\\npm'目录下），若是局部安装，则会在项目内的./node\_modules/.bin/目录下创建一个软链接。
+
+
+如果你的模块只有一个可执行文件，并且它的命令名称和模块名称一样，你可以只写一个字符串来代替上面那种配置，例如：
+~~~json
+{ "name": "my-program"
+, "version": "1.2.5"
+, "bin": "./path/to/program" }
+~~~
+作用和如下写法相同:
+~~~json
+{ "name": "my-program"
+, "version": "1.2.5"
+, "bin" : { "my-program" : "./path/to/program" } }
+~~~
+
+::: tip 什么是软连接
+软链接（符号链接）是一类特殊的可执行文件， 其包含有一条以绝对路径或者相对路径的形式指向其它文件或者目录的引用
+:::
+
+在举一个 cli-service 例子，'cli-service'的package.json 的bin 告诉了cli 执行脚本位置，也就是要创建软连接后对应文件地址
+
+
+![](/images/前端工程化_bin说明.png)
+
+
+在安装包之后会通过这 bin 字段生成 在 './node\_modules/.bin/'目录下创建一个脚本
+
+![](/images/前端工程化_脚本生成.png)
+
+
