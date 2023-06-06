@@ -102,6 +102,8 @@ async function config() {
 					'docs/A.前端知识整理/**/*.md',
 					'docs/B.NodeJS学习/**/*.md',
 					'docs/C.前端工程化/**/*.md',
+					'docs/E.数据库/**/*.md',
+					'docs/F.开发中杂七杂八/**/*.md',
 				],
 				{
 					titleConfig(title) {
