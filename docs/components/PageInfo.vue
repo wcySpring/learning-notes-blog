@@ -12,7 +12,7 @@
 				{{ info.description }}
 			</div>
 			<div class="docs-footer">
-				<span class="docs-info">🕐{{ info.date }}</span>
+				<span class="docs-info">🕐{{ info?.date }}</span>
 			</div>
 		</a>
 	</div>

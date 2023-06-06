@@ -63,9 +63,16 @@ async function config() {
 				{ text: 'NodeJS学习', link: '/B.NodeJS学习/1.什么是NodeJS.html' },
 				{
 					text: '前端工程化',
-					link: '/C.前端工程化/包管理工具/1.出识包管理工具.html',
+					link: '/C.前端工程化/包管理工具/1.前端包版本规范.html',
 				},
-				{ text: 'Changelog', link: 'https://github.com/...' },
+				{
+					text: '数据库',
+					link: '/E.数据库/包管理工具/1.NoSQL简介.html',
+				},
+				{
+					text: '开发中杂七杂八',
+					link: '/F.开发中杂七杂八/包管理工具/1.RESTfulAPI设计规范.html',
+				},
 			],
 			outlineTitle: '快速预览',
 
