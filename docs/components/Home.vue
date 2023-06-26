@@ -115,15 +115,15 @@
 		width: 100%;
 		height: 380px;
 		background-size: cover;
-		animation: scroll 30s linear 1 forwards;
+		// animation: scroll 30s linear 1 forwards;
 	}
 
-	@keyframes scroll {
-		0% {
-			background-position: 0 0;
-		}
-		100% {
-			background-position: 0 -400px;
-		}
-	}
+	// @keyframes scroll {
+	// 	0% {
+	// 		background-position: 0 0;
+	// 	}
+	// 	100% {
+	// 		background-position: 0 -400px;
+	// 	}
+	// }
 </style>
