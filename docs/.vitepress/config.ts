@@ -55,6 +55,9 @@ async function config() {
 			// lastUpdatedText: '最近更新时间',
 
 			// siteTitle: false // 如果有图标没标题设置 为false
+			search: {
+				provider: 'local',
+			},
 			nav: [
 				{
 					text: '前端知识整理',
