@@ -61,7 +61,7 @@ async function config() {
 			nav: [
 				{
 					text: '前端知识整理',
-					link: '/A.前端知识整理/JS基础/数据类型/2.数据类型检测.html',
+					link: '/A.前端知识整理/index',
 				},
 				{ text: 'NodeJS学习', link: '/B.NodeJS学习/1.什么是NodeJS.html' },
 				{
