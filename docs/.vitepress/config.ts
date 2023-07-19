@@ -76,6 +76,10 @@ async function config() {
 					text: '开发中杂七杂八',
 					link: '/F.开发中杂七杂八/包管理工具/1.RESTfulAPI设计规范.html',
 				},
+				{
+					text: '设计模式',
+					link: '/G.设计模式/前言.html',
+				},
 			],
 			outlineTitle: '快速预览',
 
@@ -114,6 +118,7 @@ async function config() {
 					'docs/C.前端工程化/**/*.md',
 					'docs/E.数据库/**/*.md',
 					'docs/F.开发中杂七杂八/**/*.md',
+					'docs/G.设计模式/**/*.md',
 				],
 				{
 					titleConfig(title) {
