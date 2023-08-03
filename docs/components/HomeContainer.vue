@@ -3,6 +3,7 @@
 		<div class="wrapper-left">
 			<div
 				v-show="isInfo"
+				style="width:100%"
 				class="wrapper-card-hover wrapper-info"
 				:class="{ enter: showEnter, leave: showLeave }"
 			>
