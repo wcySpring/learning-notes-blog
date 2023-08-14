@@ -80,6 +80,10 @@ async function config() {
 					text: '设计模式',
 					link: '/G.设计模式/1.前言.html',
 				},
+				{
+					text: '练习项目',
+					link: '/H.各种练习项目/导读.html',
+				},
 			],
 			outlineTitle: '快速预览',
 
@@ -119,6 +123,7 @@ async function config() {
 					'docs/E.数据库/**/*.md',
 					'docs/F.开发中杂七杂八/**/*.md',
 					'docs/G.设计模式/**/*.md',
+					'docs/H.各种练习项目/**/*.md',
 				],
 				{
 					titleConfig(title) {
