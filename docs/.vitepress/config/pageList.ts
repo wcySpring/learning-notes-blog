@@ -22,7 +22,7 @@ function _compareDate(obj1: PageInfoType, obj2: PageInfoType) {
 	return obj1.date < obj2.date ? 1 : -1
 }
 
-// 获取文件信息git
+// 获取文件信息git https://github.com/vuejs/vitepress/blob/789dc16bb134bd06e0ca12b850d57471a3d86ea6/src/node/utils/getGitTimestamp.ts#L8
 function getFileInfoByGit(file: string) {
 	const [commits] = gitlog({
 		branch: 'main', // 分支
