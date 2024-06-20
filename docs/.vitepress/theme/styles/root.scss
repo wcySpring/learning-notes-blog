@@ -1,84 +1,94 @@
 @import '_variables';
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-display: swap;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-display: swap;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 100;
-	font-display: swap;
-	font-variation-settings: 'wght' 100;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 100;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 100;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 200;
-	font-display: swap;
-	font-variation-settings: 'wght' 200;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 200;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 200;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 300;
-	font-display: swap;
-	font-variation-settings: 'wght' 300;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 300;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 300;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 400;
-	font-display: swap;
-	font-variation-settings: 'wght' 400;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 400;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 400;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 500;
-	font-display: swap;
-	font-variation-settings: 'wght' 500;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 500;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 500;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 600;
-	font-display: swap;
-	font-variation-settings: 'wght' 600;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 600;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 600;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 700;
-	font-display: swap;
-	font-variation-settings: 'wght' 700;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 700;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 700;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 800;
-	font-display: swap;
-	font-variation-settings: 'wght' 800;
-}
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 800;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 800;
+// }
 
-@font-face {
-	font-family: 'dJc4WnD8uJuk';
-	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
-	font-weight: 900;
-	font-display: swap;
-	font-variation-settings: 'wght' 900;
+// @font-face {
+// 	font-family: 'dJc4WnD8uJuk';
+// 	src: url('/learning-notes-blog/font/dJc4WnD8uJuk.woff2') format('woff2');
+// 	font-weight: 900;
+// 	font-display: swap;
+// 	font-variation-settings: 'wght' 900;
+// }
+
+.container{
+	width: 100% !important;
+	padding: 0 !important;
+	max-width: 100% !important;
+}
+.vp-doc a{
+	text-decoration:none
 }
 
 :root {
+	--vp-c-indigo-1:255, 255, 255, .1;
 	--md-tip-danger-bg: #fdf7f7;
 	--md-tip-danger-border: #d9534f;
 	--md-tip-danger-color: #d9534f;
