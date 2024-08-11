@@ -7,7 +7,7 @@
 				<span class="page-info" v-show="pageInfo?.authorDate"
 					>✍️ {{ pageInfo?.authorDate }}</span
 				>
-				<span class="page-info" v-show="pageInfo?.date">
+				<span class="page-info" v-if="pageInfo?.date">
 					🕒 {{ pageInfo?.date }}({{ updateTime }})</span
 				>
 				<span class="page-info" v-show="pageInfo?.tags">
