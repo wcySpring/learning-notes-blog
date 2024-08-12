@@ -84,6 +84,10 @@ async function config() {
           text: "练习项目",
           link: "/H.各种练习项目/导读.html",
         },
+        {
+          text: "运维",
+          link: "/I.运维/导读.html",
+        },
       ],
       outlineTitle: "快速预览",
 
@@ -124,6 +128,7 @@ async function config() {
           "docs/F.开发中杂七杂八/**/*.md",
           "docs/G.设计模式/**/*.md",
           "docs/H.各种练习项目/**/*.md",
+          "docs/I.运维/**/*.md",
         ],
         {
           titleConfig(title) {
